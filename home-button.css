@@ -1,0 +1,44 @@
+.home-button {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 10px 14px;
+  border: 1px solid rgba(36, 48, 68, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #243044;
+  box-shadow: 0 10px 24px rgba(36, 48, 68, 0.14);
+  font: 700 14px/1.2 "Segoe UI", Arial, sans-serif;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  backdrop-filter: blur(8px);
+}
+
+.home-button:hover,
+.home-button:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(36, 48, 68, 0.34);
+  color: #243044;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(36, 48, 68, 0.18);
+  outline: none;
+}
+
+.home-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .home-button {
+    top: 10px;
+    left: 10px;
+    min-height: 36px;
+    padding: 9px 12px;
+    font-size: 13px;
+  }
+}
