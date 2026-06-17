@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang lựa chọn bài tập</title>
+
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --sky-panel: #eaf2ff;
+            --surface: #ffffff;
+            --surface-soft: #fbfcff;
+            --ink: #243044;
+            --muted: #6a7587;
+            --line: #dfe6f0;
+            --shadow: 0 22px 50px rgba(39, 52, 74, 0.14);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            color: var(--ink);
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            display: grid;
+            place-items: center;
+            padding: 42px 18px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0 0 auto 0;
+            height: 178px;
+            background: var(--sky-panel);
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 88px;
+            left: max(18px, calc(50% - 610px));
+            width: 132px;
+            height: 132px;
+            border-radius: 30px;
+            background: #ffe5ef;
+            box-shadow:
+                720px 42px 0 #e1f7ef,
+                920px 286px 0 #fff1c7,
+                118px 430px 0 #eee7ff;
+            z-index: -1;
+        }
+
+        .page-shell {
+            width: min(1120px, 100%);
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .palette-strip {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            height: 12px;
+        }
+
+        .palette-strip span:nth-child(1) {
+            background: #ffe5ef;
+        }
+
+        .palette-strip span:nth-child(2) {
+            background: #ffeade;
+        }
+
+        .palette-strip span:nth-child(3) {
+            background: #fff1c7;
+        }
+
+        .palette-strip span:nth-child(4) {
+            background: #e1f7ef;
+        }
+
+        .palette-strip span:nth-child(5) {
+            background: #e4efff;
+        }
+
+        .palette-strip span:nth-child(6) {
+            background: #eee7ff;
+        }
+
+        .palette-strip span:nth-child(7) {
+            background: #e9eef5;
+        }
+
+        .palette-strip span:nth-child(8) {
+            background: #e1f7ef;
+        }
+
+        .top-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 30px;
+            border-bottom: 1px solid var(--line);
+            background: var(--surface);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 850;
+            letter-spacing: 0;
+        }
+
+        .brand-mark {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #d3c4ff;
+            border-radius: 16px;
+            color: #6b56ad;
+            background: #eee7ff;
+            font-weight: 900;
+            box-shadow: 0 10px 20px rgba(107, 86, 173, 0.12);
+        }
+
+        .brand small,
+        .status-pill {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 650;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            min-height: 38px;
+            padding: 9px 14px;
+            border: 1px solid #b8e9dc;
+            border-radius: 999px;
+            background: #e1f7ef;
+            white-space: nowrap;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            background: #45b79c;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 0.82fr 1.18fr;
+            gap: 28px;
+            padding: 34px;
+            background: #fbfcff;
+        }
+
+        .hero {
+            min-height: 510px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 28px;
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: 26px;
+            background: #ffffff;
+        }
+
+        .hero-copy {
+            display: grid;
+            gap: 18px;
+        }
+
+        .eyebrow {
+            width: max-content;
+            max-width: 100%;
+            border: 1px solid #f7bfd2;
+            border-radius: 999px;
+            padding: 8px 13px;
+            color: #a94768;
+            background: #ffe5ef;
+            font-size: 14px;
+            font-weight: 850;
+        }
+
+        h1 {
+            max-width: 470px;
+            font-size: 48px;
+            line-height: 1.08;
+            letter-spacing: 0;
+        }
+
+        .lead {
+            max-width: 440px;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.65;
+        }
+
+        .summary-panel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .summary-item {
+            min-height: 94px;
+            display: grid;
+            align-content: center;
+            gap: 5px;
+            padding: 18px 16px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: #f8faff;
+        }
+
+        .summary-number {
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .summary-label {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 750;
+        }
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            align-content: start;
+        }
+
+        .exercise-card {
+            --accent: #4f73c8;
+            --soft: #e4efff;
+            --border: #bfd1ff;
+            position: relative;
+            min-height: 136px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+            overflow: hidden;
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            color: var(--ink);
+            text-decoration: none;
+            background: var(--soft);
+            box-shadow: 0 12px 24px rgba(39, 52, 74, 0.08);
+            transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .exercise-card::before {
+            content: "";
+            position: absolute;
+            inset: auto 18px 14px 18px;
+            height: 5px;
+            border-radius: 999px;
+            background: var(--accent);
+            opacity: 0.34;
+        }
+
+        .exercise-card::after {
+            content: "";
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 14px;
+            height: 14px;
+            border-radius: 5px;
+            background: var(--accent);
+            opacity: 0.2;
+        }
+
+        .exercise-card:hover,
+        .exercise-card:focus-visible {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 18px 34px rgba(39, 52, 74, 0.16);
+            outline: none;
+        }
+
+        .exercise-card:active {
+            transform: translateY(-1px);
+        }
+
+        .exercise-index {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            color: var(--accent);
+            background: #ffffff;
+            font-weight: 900;
+        }
+
+        .exercise-copy {
+            min-width: 0;
+            display: grid;
+            gap: 7px;
+            padding-right: 8px;
+        }
+
+        .exercise-title {
+            font-size: 18px;
+            font-weight: 900;
+            line-height: 1.25;
+        }
+
+        .exercise-desc {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 650;
+            line-height: 1.45;
+        }
+
+        .exercise-arrow {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--accent);
+            background: #ffffff;
+            font-size: 22px;
+            font-weight: 900;
+            transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+        }
+
+        .exercise-card:hover .exercise-arrow,
+        .exercise-card:focus-visible .exercise-arrow {
+            transform: translateX(3px);
+            color: #ffffff;
+            background: var(--accent);
+        }
+
+        .accent-rose {
+            --accent: #c85f82;
+            --soft: #ffe5ef;
+            --border: #f7bfd2;
+        }
+
+        .accent-coral {
+            --accent: #cf6f55;
+            --soft: #ffeade;
+            --border: #ffcbb8;
+        }
+
+        .accent-amber {
+            --accent: #b9791d;
+            --soft: #fff1c7;
+            --border: #efd887;
+        }
+
+        .accent-teal {
+            --accent: #238976;
+            --soft: #e1f7ef;
+            --border: #aee7d9;
+        }
+
+        .accent-blue {
+            --accent: #4f73c8;
+            --soft: #e4efff;
+            --border: #bfd1ff;
+        }
+
+        .accent-violet {
+            --accent: #765ebd;
+            --soft: #eee7ff;
+            --border: #d3c4ff;
+        }
+
+        .accent-ink {
+            --accent: #526070;
+            --soft: #e9eef5;
+            --border: #cfd7e2;
+        }
+
+        @media (max-width: 920px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 26px;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 18px;
+            }
+
+            body::after {
+                display: none;
+            }
+
+            .page-shell {
+                border-radius: 24px;
+            }
+
+            .top-strip {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 18px;
+            }
+
+            .content {
+                padding: 18px;
+                gap: 18px;
+            }
+
+            .hero {
+                padding: 22px;
+                border-radius: 22px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .lead {
+                font-size: 16px;
+            }
+
+            .summary-panel,
+            .exercise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .exercise-card,
+            .exercise-card:last-child {
+                min-height: 122px;
+                grid-column: auto;
+                grid-template-columns: auto 1fr;
+                border-radius: 22px;
+            }
+
+            .exercise-arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page-shell">
+        <div class="palette-strip" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="top-strip">
+            <div class="brand">
+                <div class="brand-mark" aria-hidden="true">BT</div>
+                <div>
+                    <div>BT_TRINH</div>
+                    <small>Trang tổng hợp bài tập</small>
+                </div>
+            </div>
+
+            <div class="status-pill">
+                <span class="status-dot" aria-hidden="true"></span>
+                8 bài tập đã sẵn sàng
+            </div>
+        </div>
+
+        <div class="content">
+            <section class="hero" aria-labelledby="page-title">
+                <div class="hero-copy">
+                    <div class="eyebrow">Bộ sưu tập HTML/CSS</div>
+                    <h1 id="page-title">Chọn bài tập muốn xem</h1>
+                    <p class="lead">
+                       Click để xem các bài tập đã được thực hiện ạ!
+                    </p>
+                </div>
+
+                <div class="summary-panel" aria-label="Tóm tắt bài tập">
+                    <div class="summary-item">
+                        <div class="summary-number">08</div>
+                        <div class="summary-label">Bài tập</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-number">HTML</div>
+                        <div class="summary-label">Nội dung</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-number">CSS</div>
+                        <div class="summary-label">Giao diện</div>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="exercise-grid" aria-label="Danh sách bài tập">
+                <a class="exercise-card accent-rose" href="web-html-baitap-main/index.html">
+                    <span class="exercise-index">01</span>
+                    <span class="exercise-copy">
+                        <span class="exercise-title">Bài thơ</span>
+                        <span class="exercise-desc">Trang trình bày nội dung bài thơ.</span>
+                    </span>
+                    <span class="exercise-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a class="exercise-card accent-coral" href="BT_TKW_VIDEO-main/index.html">
+                    <span class="exercise-index">02</span>
+                    <span class="exercise-copy">
+                        <span class="exercise-title">Danh sách bài hát</span>
+                        <span class="exercise-desc">Mở trang danh sách nhạc và video.</span>
+                    </span>
+                    <span class="exercise-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a class="exercise-card accent-amber" href="Trang-RL-main/index.html">
+                    <span class="exercise-index">03</span>
+                    <span class="exercise-copy">
+                        <span class="exercise-title">Đăng nhập trang ĐRL</span>
+                        <span class="exercise-desc">Form đăng nhập điểm rèn luyện.</span>
+                    </span>
+                    <span class="exercise-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a class="exercise-card accent-teal" href="Thongtindangky-main/index.html">
+                    <span class="exercise-index">04</span>
+                    <span class="exercise-copy">
+                        <span class="exercise-title">Thông tin đăng ký</span>
+                        <span class="exercise-desc">Trang nhập và hiển thị thông tin.</span>
+                    </span>
+                    <span class="exercise-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a class="exercise-card accent-blue" href="gioi-thieu.html">
+                    <span class="exercise-index">05</span>
+                    <span class="exercise-copy">
+                        <span class="exercise-title">Website giới thiệu bản thân</span>
+                        <span class="exercise-desc">Mở trang hồ sơ cá nhân.</span>
+                    </span>
+                    <span class="exercise-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a class="exercise-card accent-violet" href="dang-nhap.html">
+                    <span class="exercise-index">06</span>
+                    <span class="exercise-copy">
+                        <span class="exercise-title">Trang đăng nhập</span>
+                        <span class="exercise-desc">Giao diện đăng nhập độc lập.</span>
+                    </span>
+                    <span class="exercise-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a class="exercise-card accent-teal" href="sodo.html">
+                    <span class="exercise-index">07</span>
+                    <span class="exercise-copy">
+                        <span class="exercise-title">Sơ đồ tổng quát website</span>
+                        <span class="exercise-desc">Bài tập mô tả các trang chức năng.</span>
+                    </span>
+                    <span class="exercise-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a class="exercise-card accent-ink" href="thi-thpt.html">
+                    <span class="exercise-index">08</span>
+                    <span class="exercise-copy">
+                        <span class="exercise-title">Đăng nhập thi THPT</span>
+                        <span class="exercise-desc">Trang đăng nhập hệ thống thi.</span>
+                    </span>
+                    <span class="exercise-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+            </nav>
+        </div>
+    </main>
+</body>
+</html>

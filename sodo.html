@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sơ đồ tổng quát website cửa hàng mỹ phẩm</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff1f8, #eef7ff, #f5fff3);
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 28px;
+      padding: 35px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      border: 3px solid #ffffff;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 34px;
+      color: #d9467a;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .main-box {
+      width: fit-content;
+      margin: 0 auto 35px;
+      padding: 18px 40px;
+      background: linear-gradient(135deg, #ffb6d5, #ffd6e8);
+      color: #7a1f45;
+      border-radius: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 8px 18px rgba(217, 70, 122, 0.25);
+      border: 3px solid #fff;
+    }
+
+    .line {
+      width: 4px;
+      height: 35px;
+      background: #f49ac2;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+
+    .pages {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 35px;
+    }
+
+    .page-card {
+      border-radius: 24px;
+      padding: 22px;
+      min-height: 290px;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+      border: 3px solid #fff;
+      transition: 0.3s;
+    }
+
+    .page-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.16);
+    }
+
+    .page-card h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      text-align: center;
+      color: #333;
+      padding-bottom: 10px;
+      border-bottom: 2px dashed rgba(0, 0, 0, 0.18);
+    }
+
+    .page-card ul {
+      list-style: none;
+    }
+
+    .page-card li {
+      background: rgba(255, 255, 255, 0.72);
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin-bottom: 9px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .pink {
+      background: linear-gradient(135deg, #ffd1dc, #ffe6ee);
+    }
+
+    .blue {
+      background: linear-gradient(135deg, #cdeaff, #e8f6ff);
+    }
+
+    .purple {
+      background: linear-gradient(135deg, #e5d4ff, #f4ecff);
+    }
+
+    .green {
+      background: linear-gradient(135deg, #d7f8d7, #efffee);
+    }
+
+    .yellow {
+      background: linear-gradient(135deg, #fff0b8, #fff8dc);
+    }
+
+    .orange {
+      background: linear-gradient(135deg, #ffd6b3, #fff0e5);
+    }
+
+    .mint {
+      background: linear-gradient(135deg, #c9fff1, #eafffa);
+    }
+.rose {
+      background: linear-gradient(135deg, #ffc6c6, #ffe9e9);
+    }
+
+    .note {
+      margin-top: 35px;
+      padding: 20px;
+      border-radius: 18px;
+      background: #fff7fb;
+      border-left: 8px solid #f472b6;
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .note strong {
+      color: #d9467a;
+    }
+
+    @media (max-width: 1100px) {
+      .pages {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .pages {
+        grid-template-columns: 1fr;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+
+      .main-box {
+        font-size: 18px;
+        padding: 15px 25px;
+        text-align: center;
+      }
+
+      .container {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">Sơ đồ tổng quát website</h1>
+    <p class="subtitle">Đề tài: Thiết kế giao diện website cửa hàng mỹ phẩm bằng Tailwind CSS</p>
+
+    <div class="main-box">WEBSITE CỬA HÀNG MỸ PHẨM</div>
+    <div class="line"></div>
+
+    <div class="pages">
+      <!-- Trang chủ -->
+      <div class="page-card pink">
+        <h2>1. Trang chủ</h2>
+        <ul>
+          <li>Banner</li>
+          <li>Danh mục</li>
+          <li>Sản phẩm nổi bật</li>
+          <li>Footer</li>
+        </ul>
+      </div>
+
+      <!-- Trang sản phẩm -->
+      <div class="page-card blue">
+        <h2>2. Sản phẩm</h2>
+        <ul>
+          <li>Danh sách sản phẩm</li>
+          <li>Tìm kiếm</li>
+          <li>Lọc sản phẩm</li>
+          <li>Thẻ sản phẩm</li>
+          <li>Nút xem chi tiết</li>
+          <li>Nút đặt mua</li>
+        </ul>
+      </div>
+
+      <!-- Chi tiết sản phẩm -->
+      <div class="page-card purple">
+        <h2>3. Chi tiết sản phẩm</h2>
+        <ul>
+          <li>Hình ảnh</li>
+          <li>Tên sản phẩm</li>
+          <li>Giá bán</li>
+          <li>Mô tả</li>
+          <li>Công dụng</li>
+          <li>Hướng dẫn sử dụng</li>
+        </ul>
+      </div>
+
+      <!-- Giỏ hàng minh họa -->
+      <div class="page-card green">
+        <h2>4. Giỏ hàng minh họa</h2>
+        <ul>
+          <li>Sản phẩm mẫu</li>
+          <li>Tổng tiền mẫu</li>
+          <li>Số lượng mẫu</li>
+          <li>Nút xóa mẫu</li>
+          <li>Nút sang trang thanh toán</li>
+        </ul>
+      </div>
+
+      <!-- Thanh toán -->
+      <div class="page-card yellow">
+        <h2>5. Hướng dẫn thanh toán</h2>
+        <ul>
+          <li>QR thanh toán</li>
+          <li>Số tài khoản</li>
+          <li>Tên chủ tài khoản</li>
+          <li>Nội dung chuyển khoản mẫu</li>
+          <li>Hướng dẫn gửi hóa đơn</li>
+          <li>Liên hệ xác nhận</li>
+        </ul>
+      </div>
+
+      <!-- Liên hệ -->
+      <div class="page-card orange">
+        <h2>6. Liên hệ</h2>
+        <ul>
+<li>Thông tin liên hệ</li>
+          <li>Form liên hệ</li>
+          <li>Số điện thoại</li>
+          <li>Zalo</li>
+          <li>Facebook</li>
+          <li>Email</li>
+        </ul>
+      </div>
+
+      <!-- Giới thiệu -->
+      <div class="page-card mint">
+        <h2>7. Giới thiệu</h2>
+        <ul>
+          <li>Giới thiệu cửa hàng</li>
+          <li>Cam kết</li>
+          <li>Hình ảnh</li>
+          <li>Thông tin thương hiệu</li>
+        </ul>
+      </div>
+
+      <!-- Đăng nhập đăng ký -->
+      <div class="page-card rose">
+        <h2>8. Đăng nhập / Đăng ký minh họa</h2>
+        <ul>
+          <li>Form đăng nhập</li>
+          <li>Form đăng ký</li>
+          <li>Nút thao tác giao diện</li>
+          <li>Quay về trang chủ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>HIHI:</strong>
+     T H É N  K Ì U !!!
+    </div>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll(".page-card");
+
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        alert("Đây là phần giao diện minh họa: " + card.querySelector("h2").innerText);
+      });
+    });
+  </script>
+</body>
+</html>

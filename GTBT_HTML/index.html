@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>Lê Thị Tuyết Trinh | Website Cá Nhân</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #493b42;
+      background: #fffafc;
+    }
+
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      border: none;
+      background-color: rgba(217, 154, 173, 0.96);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 14px rgba(164, 94, 115, 0.22);
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .navbar.show-greeting {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .navbar-inverse .navbar-brand {
+      color: white;
+      font-weight: bold;
+    }
+
+    .carousel-inner > .item {
+      background: linear-gradient(135deg, #fff0f5, #fffafc);
+    }
+
+    .carousel-inner > .item > img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      opacity: 0.18;
+      filter: brightness(110%) saturate(75%);
+    }
+
+    .carousel-caption {
+      bottom: 50px;
+      text-shadow: none;
+      color: #8c5063;
+    }
+
+    .avatar {
+      width: 155px;
+      height: 155px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 10px 24px rgba(164, 94, 115, 0.24);
+      margin-bottom: 15px;
+    }
+
+    .carousel-caption h1,
+    .carousel-caption h2 {
+      color: #a95d74;
+      font-weight: bold;
+    }
+
+    .button-area {
+      padding: 25px 15px;
+      background-color: #fff5f8;
+      text-align: center;
+    }
+
+    .btn-pink {
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 25px;
+      padding: 10px 18px;
+      margin: 6px;
+      background: linear-gradient(90deg, #bd7188, #e8b4c2);
+    }
+.btn-pink:hover {
+      color: white;
+      background: linear-gradient(90deg, #a95d74, #d99aad);
+    }
+
+    .content-box {
+      background-color: white;
+      padding: 30px;
+      margin: 35px auto;
+      border-radius: 18px;
+      border-left: 7px solid #d99aad;
+      box-shadow: 0 8px 22px rgba(164, 94, 115, 0.12);
+    }
+
+    h2 {
+      color: #b7657c;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      color: #a95d74;
+      font-weight: bold;
+    }
+
+    .card-box {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 18px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(189, 113, 136, 0.13);
+      min-height: 190px;
+    }
+
+    .card-box:hover {
+      transform: translateY(-5px);
+      transition: 0.25s;
+    }
+
+    .icon-box {
+      background: linear-gradient(135deg, #c97892, #f1c4d0);
+      color: white;
+      width: 75px;
+      height: 75px;
+      line-height: 75px;
+      border-radius: 50%;
+      font-size: 32px;
+      margin: 0 auto 15px auto;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      border: 1px solid #f1b8c8;
+    }
+
+    .required-star {
+      color: red;
+      font-weight: bold;
+    }
+
+    .result {
+      display: none;
+      background: #fff5f8;
+      border-left: 6px solid #d99aad;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 12px;
+    }
+
+    a {
+      color: #a95d74;
+      font-weight: bold;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #bd7188, #e8b4c2);
+      color: white;
+      text-align: center;
+      padding: 22px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .carousel-inner > .item > img {
+        height: 350px;
+      }
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+      }
+
+      .btn-pink {
+        width: 100%;
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a id="loiChao" class="navbar-brand" href="javascript:void(0)" onclick="trangChu()">Xin chào bạn !</a>
+    </div>
+  </div>
+</nav>
+
+<div id="home">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item active">
+        <img src="avatar.png" alt="Ảnh đại diện">
+        <div class="carousel-caption">
+          <img src="avatar.png" class="avatar" alt="Avatar">
+          <h1>Lê Thị Tuyết Trinh</h1>
+          <p>Website cá nhân môn Thiết kế Web</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="avatar.png" alt="Học tập">
+        <div class="carousel-caption">
+          <h2>Học tập - Trải nghiệm - Phát triển</h2>
+<p>HTML, CSS, Bootstrap và JavaScript</p>
+        </div>
+      </div>
+
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+  </div>
+</div>
+
+<div class="button-area">
+  <button type="button" class="btn btn-pink" onclick="trangChu()">Trang chủ</button>
+  <button type="button" class="btn btn-pink" onclick="gioiThieu()">Giới thiệu</button>
+  <button type="button" class="btn btn-pink" onclick="thietKeWeb()">Thiết kế Web</button>
+  <button type="button" class="btn btn-pink" onclick="traiNghiem()">Trải nghiệm</button>
+  <button type="button" class="btn btn-pink" onclick="kinhNghiem()">Kinh nghiệm</button>
+  <button type="button" class="btn btn-pink" onclick="chiaSe()">Chia sẻ</button>
+  <button type="button" class="btn btn-pink" onclick="formDangKiLienHe()">Form đăng kí liên hệ</button>
+  <button type="button" class="btn btn-pink" onclick="lienHe()">Liên hệ</button>
+</div>
+
+<div class="container">
+  <div id="noiDung" class="content-box">
+    <h2>Lời mở đầu</h2>
+    <p>
+      Xin chào! Rất vui được đón tiếp bạn, hy vọng rằng bạn sẽ có một trải nghiệm thật tuyết vời trong website của mình nhé!
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 - Website cá nhân Lê Thị Tuyết Trinh</p>
+</footer>
+
+<script>
+  var thamSo = new URLSearchParams(window.location.search);
+  var tenNguoiXem = thamSo.get("ten");
+
+  if (tenNguoiXem && tenNguoiXem.trim() !== "") {
+    document.getElementById("loiChao").textContent = "Xin chào " + tenNguoiXem.trim() + " !";
+  }
+
+  function hienThanhChaoKhiCuon() {
+    var thanhChao = document.querySelector(".navbar");
+
+    if (window.scrollY > 40) {
+      thanhChao.classList.add("show-greeting");
+    } else {
+      thanhChao.classList.remove("show-greeting");
+    }
+  }
+
+  window.addEventListener("scroll", hienThanhChaoKhiCuon);
+  hienThanhChaoKhiCuon();
+
+  function trangChu() {
+    document.getElementById("noiDung").innerHTML =
+      "<h2>Trang chủ</h2>" +
+      "<p>Website cá nhân của Lê Thị Tuyết Trinh được xây dựng với giao diện hồng pastel, sử dụng Bootstrap, HTML, CSS và JavaScript.</p>";
+  }
+
+  function gioiThieu() {
+    document.getElementById("noiDung").innerHTML =
+      "<h2>Giới thiệu bản thân</h2>" +
+      "<p><b>Họ và tên:</b> Lê Thị Tuyết Trinh</p>" +
+      "<p><b>Lớp:</b> DA24TTD</p>" +
+      "<p><b>Ngày sinh:</b> 10/03/2005</p>" +
+      "<p><b>Quê quán:</b> Cần Thơ</p>" +
+      "<p><b>Địa chỉ:</b> Khóm 1, thị trấn Càng Long, huyện Càng Long, tỉnh Trà Vinh</p>" +
+      "<p>Tôi là sinh viên đang học môn Thiết kế Web, yêu thích việc xây dựng giao diện đẹp mắt, rõ ràng và dễ sử dụng.</p>";
+  }
+
+  function thietKeWeb() {
+    document.getElementById("noiDung").innerHTML =
+      "<h2>Thiết kế Web</h2>" +
+      "<div class='row'>" +
+        "<div class='col-sm-3'>" +
+          "<div class='card-box'>" +
+            "<div class='icon-box'><span class='glyphicon glyphicon-file'></span></div>" +
+            "<h4>HTML</h4>" +
+            "<p>Tạo cấu trúc và nội dung cho trang web.</p>" +
+          "</div>" +
+        "</div>" +
+
+        "<div class='col-sm-3'>" +
+          "<div class='card-box'>" +
+"<div class='icon-box'><span class='glyphicon glyphicon-tint'></span></div>" +
+            "<h4>CSS</h4>" +
+            "<p>Trang trí màu sắc, bố cục và giao diện.</p>" +
+          "</div>" +
+        "</div>" +
+
+        "<div class='col-sm-3'>" +
+          "<div class='card-box'>" +
+            "<div class='icon-box'><span class='glyphicon glyphicon-phone'></span></div>" +
+            "<h4>Bootstrap</h4>" +
+            "<p>Tạo giao diện responsive và chuyên nghiệp.</p>" +
+          "</div>" +
+        "</div>" +
+"<div class='col-sm-3'>" +
+          "<div class='card-box'>" +
+            "<div class='icon-box'><span class='glyphicon glyphicon-cog'></span></div>" +
+            "<h4>JavaScript</h4>" +
+            "<p>Xử lý sự kiện và hiển thị nội dung động.</p>" +
+          "</div>" +
+        "</div>" +
+      "</div>";
+  }
+
+  function traiNghiem() {
+    document.getElementById("noiDung").innerHTML =
+      "<h2>Trải nghiệm</h2>" +
+      "<div class='row'>" +
+        "<div class='col-sm-3'>" +
+          "<div class='card-box'>" +
+            "<div class='icon-box'><span class='glyphicon glyphicon-heart'></span></div>" +
+            "<h4>Mùa hè xanh</h4>" +
+            "<p>Tham gia hỗ trợ địa phương và hoạt động cộng đồng.</p>" +
+          "</div>" +
+        "</div>" +
+
+        "<div class='col-sm-3'>" +
+          "<div class='card-box'>" +
+            "<div class='icon-box'><span class='glyphicon glyphicon-user'></span></div>" +
+            "<h4>Hoạt động tình nguyện</h4>" +
+            "<p>Tham gia các chương trình sinh viên và thiện nguyện.</p>" +
+          "</div>" +
+        "</div>" +
+
+        "<div class='col-sm-3'>" +
+          "<div class='card-box'>" +
+            "<div class='icon-box'><span class='glyphicon glyphicon-book'></span></div>" +
+            "<h4>Dự án học tập</h4>" +
+            "<p>Xây dựng các trang web nhỏ bằng HTML, CSS, Bootstrap và JavaScript.</p>" +
+          "</div>" +
+        "</div>" +
+
+        "<div class='col-sm-3'>" +
+          "<div class='card-box'>" +
+            "<div class='icon-box'><span class='glyphicon glyphicon-education'></span></div>" +
+            "<h4>Kỹ năng mềm</h4>" +
+            "<p>Rèn luyện giao tiếp, làm việc nhóm và quản lý thời gian.</p>" +
+          "</div>" +
+        "</div>" +
+      "</div>";
+  }
+
+  function kinhNghiem() {
+    document.getElementById("noiDung").innerHTML =
+      "<h2>Kinh nghiệm</h2>" +
+      "<div class='card-box text-left'>" +
+        "<h4>Bài tập đã thực hiện</h4>" +
+        "<p><b>Tên:</b> Bài tập music</p>" +
+        "<p><b>Link:</b> <a href='https://relaxed-squirrel-cf7aaa.netlify.app/?zarsrc=410&utm_source=zalo&utm_medium=zalo&utm_campaign=zalo' target='_blank'>Xem bài tập music</a></p>" +
+      "</div>";
+  }
+
+  function chiaSe() {
+    document.getElementById("noiDung").innerHTML =
+      "<h2>Chia sẻ</h2>" +
+      "<p>Trong quá trình học môn Thiết kế Web, tôi nhận thấy việc thực hành thường xuyên giúp tôi hiểu rõ hơn cách xây dựng giao diện, phối màu và xử lý nội dung trên website.</p>" +
+      "<p>Website cá nhân này là sản phẩm giúp tôi rèn luyện HTML, CSS, Bootstrap và JavaScript.</p>";
+  }
+
+  function formDangKiLienHe() {
+    document.getElementById("noiDung").innerHTML =
+      "<h2>Form đăng kí liên hệ</h2>" +
+      "<form onsubmit='xuLyDangKiLienHe(event)'>" +
+
+        "<div class='form-group'>" +
+"<label>Họ và tên <span class='required-star'>*</span></label>" +
+          "<input type='text' id='hoTen' class='form-control' placeholder='Nhập họ và tên' required>" +
+        "</div>" +
+
+        "<div class='form-group'>" +
+          "<label>Số điện thoại <span class='required-star'>*</span></label>" +
+          "<input type='tel' id='soDienThoai' class='form-control' placeholder='Nhập số điện thoại 10 số' pattern='[0-9]{10}' required>" +
+        "</div>" +
+
+        "<div class='form-group'>" +
+          "<label>Email <span class='required-star'>*</span></label>" +
+          "<input type='email' id='email' class='form-control' placeholder='Nhập email' required>" +
+        "</div>" +
+
+        "<div class='form-group'>" +
+          "<label>Nội dung</label>" +
+          "<textarea id='noiDungDangKiLienHe' class='form-control' rows='4' placeholder='Nhập nội dung'></textarea>" +
+        "</div>" +
+
+        "<button type='submit' class='btn btn-pink'>Gửi</button>" +
+      "</form>" +
+
+      "<div id='ketQuaDangKiLienHe' class='result'></div>";
+  }
+
+  function xuLyDangKiLienHe(event) {
+    event.preventDefault();
+
+    var hoTen = document.getElementById("hoTen").value;
+    var soDienThoai = document.getElementById("soDienThoai").value;
+    var email = document.getElementById("email").value;
+    var noiDungDangKiLienHe = document.getElementById("noiDungDangKiLienHe").value;
+
+    document.getElementById("ketQuaDangKiLienHe").style.display = "block";
+    document.getElementById("ketQuaDangKiLienHe").innerHTML =
+      "<h4>Thông tin đăng kí liên hệ</h4>" +
+      "<p><b>Họ và tên:</b> " + hoTen + "</p>" +
+      "<p><b>Số điện thoại:</b> " + soDienThoai + "</p>" +
+      "<p><b>Email:</b> " + email + "</p>" +
+      "<p><b>Nội dung:</b> " + noiDungDangKiLienHe + "</p>" +
+      "<p class='text-success'><b>Đăng kí liên hệ thành công!</b></p>";
+  }
+
+  function lienHe() {
+    document.getElementById("noiDung").innerHTML =
+      "<h2>Thông tin liên hệ</h2>" +
+      "<div class='card-box text-left'>" +
+        "<p><b>Tên:</b> Lê Thị Tuyết Trinh</p>" +
+        "<p><b>Số điện thoại:</b> 0347848827</p>" +
+        "<p><b>Địa chỉ:</b> Khóm 1, thị trấn Càng Long, huyện Càng Long, tỉnh Trà Vinh</p>" +
+      "</div>";
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website giới thiệu bản thân</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffe6f2, #eaf5ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+        }
+
+        .intro-box {
+            width: min(520px, 100%);
+            padding: 28px;
+            background-color: #ffe6f2;
+            border: 2px solid black;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(255, 95, 162, 0.18);
+        }
+
+        .intro-box p {
+            color: #222;
+            font-size: 18px;
+            margin-bottom: 22px;
+            line-height: 1.5;
+        }
+
+        .intro-box input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .intro-box input:focus {
+            border-color: #ff5fa2;
+            box-shadow: 0 0 0 3px rgba(255, 95, 162, 0.2);
+        }
+
+        .arrow-button {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            border: 2px solid black;
+            background-color: #ff8fc7;
+            color: white;
+            font-size: 34px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .arrow-button:hover {
+            background-color: #ff5fa2;
+            transform: scale(1.08);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="intro-box">
+        <p>Chào mừng bạn đã đến với trang website giới thiệu bản thân của Tuyết Trinh</p>
+
+        <input type="text" id="nameInput" placeholder="Bạn tên là...">
+
+        <button class="arrow-button" onclick="goToPersonalWebsite()" aria-label="Đi tiếp">
+            &#10140;
+        </button>
+
+    </div>
+
+    <script>
+        function goToPersonalWebsite() {
+            var name = document.getElementById("nameInput").value.trim();
+
+            if (name === "") {
+                alert("Bạn hãy nhập tên trước nhé!");
+            } else {
+                window.location.href = "GTBT_HTML/index.html?ten=" + encodeURIComponent(name);
+            }
+        }
+    </script>
+</body>
+</html>

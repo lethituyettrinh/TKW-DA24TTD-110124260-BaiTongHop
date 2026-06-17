@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Times New Roman", serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-wrap {
+            width: 560px;
+            background-color: #d3d3d3;
+            border: 18px solid #008000;
+            padding: 42px 34px 28px;
+        }
+
+        h1 {
+            font-size: 38px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            height: 66px;
+            border: none;
+            border-bottom: 2px solid #d81535;
+            background-color: #ffffff;
+            margin-bottom: 16px;
+            padding: 10px 14px;
+            font-size: 24px;
+            outline: none;
+        }
+
+        label {
+            display: block;
+            font-size: 24px;
+            margin: 6px 0 14px;
+        }
+
+        .radio-row,
+        .check-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 9px 0;
+            font-size: 24px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+        }
+
+        .login-button {
+            margin-top: 36px;
+            width: 210px;
+            height: 72px;
+            border: 2px solid #28c2a2;
+            background-color: #0fad82;
+            color: #ffffff;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #0a936e;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 18px;
+            color: #006b24;
+            font-family: Arial, sans-serif;
+            font-size: 19px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 650px) {
+            .login-wrap {
+                width: 100%;
+                border-width: 14px;
+                padding: 30px 20px 22px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            label,
+            .radio-row,
+            .check-row {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form class="login-wrap">
+        <h1>Đăng nhập</h1>
+
+        <input type="text" id="username">
+        <label for="username">Tên đăng nhập</label>
+
+        <input type="password" id="password">
+        <label for="password">Mật khẩu</label>
+
+        <div class="radio-row">
+            <input type="radio" id="nam" name="gender" checked>
+            <label for="nam">Nam</label>
+        </div>
+
+        <div class="radio-row">
+            <input type="radio" id="nu" name="gender">
+            <label for="nu">Nữ</label>
+        </div>
+
+        <div class="check-row">
+            <input type="checkbox" id="remember">
+            <label for="remember">Lưu giá trị đăng nhập</label>
+        </div>
+
+        <button class="login-button" type="submit">Đăng nhập</button>
+        <br>
+        <a class="back-link" href="index.html">Quay lại trang chọn</a>
+    </form>
+</body>
+</html>

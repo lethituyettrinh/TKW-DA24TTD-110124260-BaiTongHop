@@ -1,0 +1,96 @@
+body {
+    background-color: #eeeeee;
+    font-family: Arial;
+}
+
+.khung {
+    width: 700px;
+    background-color: white;
+    margin: 50px auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.tieude {
+    background-color: #86a844;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 25px;
+    border-radius: 15px 15px 0 0;
+}
+
+.noidung {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px 15px 0 0;
+    margin-top: -12px;
+    position: relative;
+}
+
+.dong {
+    margin-bottom: 15px;
+}
+
+.dong label {
+    display: inline-block;
+    width: 140px;
+    font-weight: normal;
+}
+
+.dong input[type="text"],
+.dong input[type="email"],
+.dong input[type="date"],
+.dong input[type="file"],
+.dong select {
+    width: 470px;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 6px;
+}
+
+.dong input[type="radio"],
+.dong input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+.mota label {
+    font-weight: normal;
+}
+
+textarea {
+    width: 100%;
+    height: 90px;
+    margin-top: 8px;
+    /*resize: none;*/
+}
+
+
+.nut {
+    text-align: center;
+    margin-top: 25px;
+}
+
+button {
+    background-color: #86a844;
+    border: 2px solid black;
+    padding: 6px 9px;
+    font-weight: bold;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.dong input.nu {
+    margin-left: 150px;
+}
+
+.sothich input[type="checkbox"] {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.sothich span {
+    font-size: 13px;
+}
+
